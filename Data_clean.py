@@ -9,10 +9,10 @@ def nullValues(dataSet):
     ''' Analize null values '''
     x = dataSet.isna().sum()
     if len(x[x>0])>0:
-        d = {'NullRecords': x[x>0], 'TotalRecords': dataSet.shape[0]}
+        d = {'NullRecord': x[x>0], 'TotalRecord': dataSet.shape[0]}
         y = pd.DataFrame(d)
         #y["CompleteRecord"] = y["TotalRecord"] - y["NullRecord"]
-        y["Empty %"] = round(y['NullRecords']/y['TotalRecords'],2) 
+        y["Empty %"] = round(y['NullRecord']/y['TotalRecord'],2) 
     return y.sort_values("NullRecord",ascending=True)
 
 
